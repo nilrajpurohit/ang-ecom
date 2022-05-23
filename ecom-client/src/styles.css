@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root{
+    --primary:#FE2D6C;
+    --secondary:white;
+    --shadow:#0000008a;
+}
+
+*{
+    padding:0px;
+    margin:0px;
+    font-family: Segoe Print;
+}
+
+.selectDisable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}

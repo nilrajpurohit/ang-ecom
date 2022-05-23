@@ -1,0 +1,124 @@
+.svgDesign>img{
+    height:100%;
+    width:100%;
+}
+
+.main{
+    position: absolute;
+    top:0;
+    height:10vh;
+    width:100vw;
+}
+.main>.head{
+    padding:2vh;
+}
+.main>.head>.logo{
+    font-weight: 900;
+    font-size:20px;
+    color:var(--secondary);
+}
+
+.main>.formContainer{
+    padding:2vh;
+    margin-left:15vw;
+    margin-top:5vh;
+    width:70vw;
+    height:70vh;
+    box-shadow: 0px 0px 20px var(--shadow);
+    background: var(--secondary);
+    border-radius:30px;
+}
+.main>.formContainer>.title{
+    padding:2vh;
+    color: var(--primary);
+    font-weight: bolder;
+}
+.main>.formContainer>.formDiv{
+    height:80%;
+    width:40%;
+    margin-top:2%;
+    margin-left:30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: var(--primary); */
+}
+
+.main>.formContainer>.formDiv>.control>input:-webkit-autofill {
+    -webkit-text-fill-color: var(--primary);
+}
+input:-internal-autofill-selected{
+    background-color:none;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.main>.formContainer>.formDiv>.control {
+    display: flex;
+    background: var(--secondary);
+    padding:5px 15px;
+    color: var(--primary);
+    border-radius:50px;
+    box-shadow:0px 0px 5px var(--shadow);
+    margin:10px;
+    border:2px solid transparent;
+}
+.main>.formContainer>.formDiv>.control>fa-icon{
+    margin-right:10px;
+    font-size:18px;
+}
+.main>.formContainer>.formDiv>.control>input{
+   border:none;
+   outline:none;
+   font-size:18px;
+   font-weight: bolder;
+   color: var(--primary);
+   background-color: var(--secondary);
+}
+
+.main>.formContainer>.formDiv>.control>input::placeholder{
+    font-size:14px;
+    opacity:0.8;
+}
+.main>.formContainer>.formDiv>.controlBtn{
+    background: var(--primary);
+    margin:30px;
+    font-size:18px;
+    width:21%;
+    padding:5px 30px;
+    border-radius:50px;
+    box-shadow:0px 0px 5px var(--shadow);
+    transition: all 0.1s;
+    font-weight: bolder;
+    color: var(--secondary);
+}
+
+.main>.formContainer>.formDiv>.controlBtn>fa-icon{
+    margin-left:20px;
+    animation-name: controlBtnAnim;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
+    filter: drop-shadow(0px 0px 2px var(--shadow));
+}
+.main>.formContainer>.formDiv>.controlBtn:active{
+    transform: scale(1.15);
+    box-shadow:0px 0px 5px var(--shadow);
+}
+
+
+
+
+
+/* Animation */
+
+@keyframes controlBtnAnim {
+    0%{
+        margin-left:10px;
+    }
+    50%{
+        margin-left:20px;
+    }
+    100%{
+        margin-left:10px;
+    }
+}
