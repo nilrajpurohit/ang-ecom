@@ -5,11 +5,11 @@ import { HomeComponent } from './page/home/home.component';
 
 const routes: Routes = [
 {
-  path:'',
+  path:'auth',
   component:AuthComponent
 },
 {
-  path:'home',
+  path:'',
   component:HomeComponent
 }
 

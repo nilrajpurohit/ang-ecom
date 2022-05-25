@@ -1,0 +1,17 @@
+
+<p *ngIf="type == 'banner'; then thenBlock"></p>
+
+<ng-template #thenBlock>
+    <ngx-tiny-slider [config]="tinySliderConfigLazy" #sliderLazy>
+        <ng-container class="items">
+           <div *ngFor="let banner of listOfData;index as i" class="banner">
+            <div class="item">
+                <div class="slide">
+                    <img [src]="banner" (load)="onImgLoadSuccess()" [style.width]="width">
+                </div>
+            </div>
+           </div>
+        </ng-container>
+        <button id="button"></button>
+    </ngx-tiny-slider>
+</ng-template>

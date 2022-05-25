@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faHandHoldingHeart,faUser,faKey,faCircleArrowRight,faAt,faPhone,faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import {faUser,faKey,faCircleArrowRight,faAt,faPhone,faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-auth',
@@ -9,16 +9,15 @@ import { faHandHoldingHeart,faUser,faKey,faCircleArrowRight,faAt,faPhone,faCheck
 export class AuthComponent implements OnInit {
 
   constructor() { }
-  //icon init
+  //ICON'S INIT
   faKey=faKey;
   faPhone=faPhone;
   faCheckCircle=faCheckCircle;
   faAt=faAt;
   faUser=faUser;
   faCircleArrowRight=faCircleArrowRight;
-  faHandHoldingHeart=faHandHoldingHeart;
 
-  // variable init
+  // VARIABLE'S INIT
   activeForm:string='resgiter';
 
   ngOnInit(): void {

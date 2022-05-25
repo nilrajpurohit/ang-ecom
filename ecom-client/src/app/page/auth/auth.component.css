@@ -1,11 +1,4 @@
-.svgDesign>img{
-    height:100%;
-    width:100%;
-}
-
 .main{
-    position: absolute;
-    top:0;
     height:10vh;
     width:100vw;
 }

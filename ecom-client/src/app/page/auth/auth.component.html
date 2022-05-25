@@ -1,22 +1,42 @@
-<div class="authComponent">
-    <!-- SVG DIV -->
-    <div class="svgDesign selectDisable">
-        <img src="../../../assets/images/design/Login.svg" alt="">
-    </div>
-
-    <div class="main">
-        <div class="head selectDisable">
-            <span class="logo">Sweet Art <fa-icon [icon]="faHandHoldingHeart"></fa-icon></span>
+<div class="main">
+    <p *ngIf="activeForm == 'login'; then thenBlock; else elseBlock"></p>
+    <!-- Login Form -->
+   <ng-template #thenBlock>
+    <div class="formContainer LoginForm">
+        <div class="title selectDisable">
+            Login Here ;)
         </div>
-
-        <p *ngIf="activeForm == 'login'; then thenBlock; else elseBlock"></p>
-        <!-- Login Form -->
-       <ng-template #thenBlock>
-        <div class="formContainer LoginForm">
+        <div class="formDiv">
+            <div class="control">
+                <fa-icon [icon]="faUser"></fa-icon>
+                <input type="text" id="username" name="username" placeholder="Username">
+            </div>
+            <div class="control">
+                <fa-icon [icon]="faKey"></fa-icon>
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="controlBtn selectDisable">
+                <span>Login</span>
+                <fa-icon [icon]="faCircleArrowRight"></fa-icon>
+            </div>
+        </div>
+    </div>
+   </ng-template>
+    <!-- Register Form -->
+    <ng-template #elseBlock>
+        <div class="formContainer RegisterForm">
             <div class="title selectDisable">
-                Login Here ;)
+                Register Here :)
             </div>
             <div class="formDiv">
+                <div class="control">
+                    <fa-icon [icon]="faAt"></fa-icon>
+                    <input type="email" id="email" name="email" placeholder="Email ID">
+                </div>
+                <div class="control">
+                    <fa-icon [icon]="faPhone"></fa-icon>
+                    <input type="number" id="number" name="number" placeholder="Mobile No">
+                </div>
                 <div class="control">
                     <fa-icon [icon]="faUser"></fa-icon>
                     <input type="text" id="username" name="username" placeholder="Username">
@@ -25,47 +45,15 @@
                     <fa-icon [icon]="faKey"></fa-icon>
                     <input type="password" id="password" name="password" placeholder="Password">
                 </div>
-                <div class="controlBtn selectDisable">
-                    <span>Login</span>
+                <div class="control">
+                    <fa-icon [icon]="faCheckCircle"></fa-icon>
+                    <input type="password" id="con-password" name="con-password" placeholder="Confirm Password">
+                </div>
+                <div class="controlBtn selectDisable" style="width:28%;">
+                    <span>Register</span>
                     <fa-icon [icon]="faCircleArrowRight"></fa-icon>
                 </div>
             </div>
         </div>
-       </ng-template>
-        <!-- Register Form -->
-        <ng-template #elseBlock>
-            <div class="formContainer RegisterForm">
-                <div class="title selectDisable">
-                    Register Here :)
-                </div>
-                <div class="formDiv">
-                    <div class="control">
-                        <fa-icon [icon]="faAt"></fa-icon>
-                        <input type="email" id="email" name="email" placeholder="Email ID">
-                    </div>
-                    <div class="control">
-                        <fa-icon [icon]="faPhone"></fa-icon>
-                        <input type="number" id="number" name="number" placeholder="Mobile No">
-                    </div>
-                    <div class="control">
-                        <fa-icon [icon]="faUser"></fa-icon>
-                        <input type="text" id="username" name="username" placeholder="Username">
-                    </div>
-                    <div class="control">
-                        <fa-icon [icon]="faKey"></fa-icon>
-                        <input type="password" id="password" name="password" placeholder="Password">
-                    </div>
-                    <div class="control">
-                        <fa-icon [icon]="faCheckCircle"></fa-icon>
-                        <input type="password" id="con-password" name="con-password" placeholder="Confirm Password">
-                    </div>
-                    <div class="controlBtn selectDisable" style="width:28%;">
-                        <span>Register</span>
-                        <fa-icon [icon]="faCircleArrowRight"></fa-icon>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-    </div>
-
+    </ng-template>
 </div>
