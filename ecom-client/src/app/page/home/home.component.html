@@ -1,3 +1,24 @@
 <div class="main">
-   <app-slider [type]="'banner'" [data]="listOfImages" [width]="'60vw'"></app-slider>
+   <div class="slider">
+      <app-slider [type]="'banner'" [data]="listOfImages" [width]="'60vw'"></app-slider>
+   </div>
+
+  <div class="categoryCompo">
+   <span class="title">Category :</span>
+   <div class="categories">
+      <div *ngFor="let category of categories;index as i" class="category">
+         <app-category [categoryData]="category"></app-category>
+      </div>
+   </div>
+  </div>
+
+  <div class="categoryCompo">
+   <span class="title">Product :</span>
+   <div class="product">
+      <div class="slider">
+         <app-slider [type]="'product'" [data]="products" [width]="''"></app-slider>
+      </div>
+   </div>
+  </div>
+
 </div>

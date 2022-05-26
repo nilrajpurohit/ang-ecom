@@ -1,0 +1,21 @@
+.categoryCompo{
+    margin-top:20px;
+    padding:10px;
+}
+.categories{
+    margin-top:20px;
+    display: flex;
+    justify-content:center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.category{
+    margin:10px;
+}
+
+.title{
+    font-size:20px;
+    font-weight:bolder;
+    color: var(--secondary);
+}

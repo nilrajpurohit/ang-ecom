@@ -2,13 +2,13 @@
     display: flex;
     justify-content:space-between;
     align-items: center;
-    width:98vw;
-    padding:0.5vw 1vw;
+    width:100%;
 }
 
 .main>.head>.logo{
     font-weight: 900;
     font-size:20px;
+    padding-left:10px;
     color:var(--secondary);
     display: flex;
     justify-content: center;
@@ -19,6 +19,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    padding:10px;
 }
 .main>.head>.menus>.menu,.menu-active{
     width:80px;
@@ -35,7 +36,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size:16px;
 }
 .main>.head>.menus>.menu:active,.menu-active:active{
     transform: scale(1.1);
@@ -48,7 +48,7 @@
 
 .icons{
     display:flex;
-    justify-content: space-around;
+    justify-content:center;
     margin-left:30px;
 }
 .icons>.icon{
