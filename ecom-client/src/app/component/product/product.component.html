@@ -1,1 +1,14 @@
-<p>product works!</p>
+<div class="product">
+    <div class="productImg">
+        <img [src]="product.imgSrc" [alt]="product.imgSrc" (load)="callLoad()">
+    </div>
+    
+   <div class="detail">
+    <div class="name">{{product.name}}</div>
+    <div class="foot">
+        <div class="rate">{{product.rate}}</div>
+        <button class="addBtn">Add to cart</button>
+    </div>
+   </div>
+
+</div>

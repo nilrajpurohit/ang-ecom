@@ -1,20 +1,23 @@
-.banner>.item{
+.component{
+    display: flex;
+}
+.component>.item{
     padding:2vh;
 }
-.banner>.item>.slide{
+.component>.item>.slide{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.banner>.item>.slide>img{
+.component>.item>.slide>img{
     width:60vw;
     box-shadow: 0px 0px 10px;
     border-radius:30px;
 }
 
 @media screen and (max-width: 900px) {
-    .banner>.item>.slide>img{
+    .component>.item>.slide>img{
         width:90vw;
     }
 }

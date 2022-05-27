@@ -56,47 +56,39 @@ export class HomeComponent implements OnInit {
     {
       imgSrc : "../../../../assets/images/products/glasses.jpeg",
       name: "Glasses",
-      description:"Product Description",
       rate : "89$"
     },
     {
       imgSrc : "../../../../assets/images/products/bracslet.jpg",
       name: "Bracslet",
-      description:"Product Description",
       rate : "89$"
     },
     {
       imgSrc : "../../../../assets/images/products/chain.jpg",
       name: "Chain",
-      description:"Product Description",
       rate : "89$"
     },
     {
       imgSrc : "../../../../assets/images/products/purse.jpeg",
       name: "Purse",
-      description:"Product Description",
       rate : "89$"
     },
     {
       imgSrc : "../../../../assets/images/products/glasses.jpeg",
       name: "Glasses",
-      description:"Product Description",
       rate : "89$"
     },
     {
       imgSrc : "../../../../assets/images/products/bracslet.jpg",
       name: "Bracslet",
-      description:"Product Description",
       rate : "89$"
     },
     {
       imgSrc : "../../../../assets/images/products/chain.jpg",
       name: "Chain",
-      description:"Product Description",
       rate : "89$"
     },
   ];
-
   constructor() {}
 
   ngOnInit() {
