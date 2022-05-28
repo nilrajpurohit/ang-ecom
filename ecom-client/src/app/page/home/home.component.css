@@ -19,3 +19,7 @@
     font-weight:bolder;
     color: var(--secondary);
 }
+
+.banner{
+    margin:20px;
+}

@@ -3,9 +3,7 @@
         <ng-container class="items">
            <div *ngFor="let data of listOfData;index as i" class="component">
             <div class="item">
-                <div class="slide">
-                    <img [src]="data" (load)="onImgLoadSuccess()" [style.width]="width">
-                </div>
+                <app-banner  (load)="onImgLoadSuccess()" [data]="data"></app-banner>
             </div>
            </div>
         </ng-container>

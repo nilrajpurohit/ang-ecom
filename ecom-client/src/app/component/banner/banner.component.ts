@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
@@ -6,10 +6,14 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-  // @Input('imgSrc') public src:string='';
-  // @Input('size') public width:string='';
+  @Input('data') public data:any;
+  @Output() load:EventEmitter<string> = new EventEmitter();
   constructor() { }
   ngOnInit(): void {
   }
 
+  callLoad(){
+    this.load.emit('load'); 
+  }
+  
 }

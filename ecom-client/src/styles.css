@@ -27,6 +27,7 @@ body{
 
 /* TNS CONTROLS */
 .tns-outer{
+    z-index:1;
     position: relative;
 }
 
@@ -46,4 +47,27 @@ body{
 .tns-nav-active{
     box-shadow:0px 0px 2px;
     background-color:var(--primary);
+}
+
+.tns-controls>button{
+    background-color:var(--primary);
+    color: var(--secondary);
+    outline:none;
+    border:none;
+    font-size:24px;
+    padding:0px 15px;
+    border-radius:30px;
+    box-shadow:0px 0px 10px var(--shadow);
+}
+
+.tns-controls>button:nth-child(1){
+    position: absolute;
+    top:40%;
+    left:1%;
+}
+
+.tns-controls>button:nth-child(2){
+    position: absolute;
+    top:40%;
+    right:1%;
 }

@@ -7,11 +7,23 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
 
-  public listOfImages: Array<string> = [
-    "../../../../assets/images/products/braslet.jpg",
-    "../../../../assets/images/products/nekcles.jpg",
-    "../../../../assets/images/products/handbag.jpg",
-    "../../../../assets/images/products/nekcles.jpg",
+  public listOfImages: Array<object> = [
+    {
+      "imgSrc":"../../../../assets/images/products/braslet.jpg",
+      "width":"60vw"
+    },
+    {
+      "imgSrc":"../../../../assets/images/products/nekcles.jpg",
+      width:""
+    },
+    {
+      "imgSrc":"../../../../assets/images/products/handbag.jpg",
+      "width":"60vw"
+    },
+    {
+      "imgSrc": "../../../../assets/images/products/nekcles.jpg",
+      "width":"60vw"
+    }
   ];
 
   public categories:Array<object> = [
@@ -89,6 +101,11 @@ export class HomeComponent implements OnInit {
       rate : "89$"
     },
   ];
+
+  public newArrival:object={
+    "imgSrc":"../../../../assets/images/products/handbag.jpg",
+    "width":"80vw"
+  }
   constructor() {}
 
   ngOnInit() {

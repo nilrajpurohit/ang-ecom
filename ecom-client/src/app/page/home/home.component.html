@@ -1,6 +1,6 @@
 <div class="main">
    <div class="slider">
-      <app-slider [type]="'banner'" [data]="listOfImages" [width]="'60vw'"></app-slider>
+      <app-slider [type]="'banner'" [data]="listOfImages"></app-slider>
    </div>
 
   <div class="categoryCompo">
@@ -18,6 +18,13 @@
       <div class="slider">
          <app-slider [type]="'product'" [data]="products" [width]="''"></app-slider>
       </div>
+   </div>
+  </div>
+
+  <div class="categoryCompo">
+   <span class="title">New Arrival :</span>
+   <div class="banner">
+      <app-banner [data]="newArrival"></app-banner>
    </div>
   </div>
 

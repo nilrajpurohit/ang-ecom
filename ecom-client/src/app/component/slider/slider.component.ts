@@ -56,29 +56,14 @@ export class SliderComponent implements OnInit {
 
     if(this.type == 'product'){
       this.tinySliderConfigLazy = {
-        controls:false,
         waitForDom: true,
         controlsText: ['<', '>'],
-        items:1,
+        items:3,
         mouseDrag: true,
-        slideBy: "page",
-        center: true,
-        swipeAngle: false,
         speed: 400,
+        edgePadding:270,
         autoplay: true,
         autoplayButtonOutput: false,
-        autoplayTimeout: 3000,
-        responsive:{
-          1250:{
-            items: 4,
-          },
-          900:{
-            items: 3,
-          },
-          600:{
-            items: 2,
-          },
-        }
       }
     }
    
