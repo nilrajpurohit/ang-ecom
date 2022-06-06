@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "ecom-client"
+  "defaultProject": "ecom-client",
+  "cli": {
+    "analytics": "f2512666-9107-43b9-a578-0dd580ce5628"
+  }
 }

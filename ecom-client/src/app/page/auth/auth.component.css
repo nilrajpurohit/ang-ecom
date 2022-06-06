@@ -1,6 +1,6 @@
 .main{
-    height:10vh;
-    width:100vw;
+    height:auto;
+    width:auto;
 }
 .main>.head{
     padding:2vh;
