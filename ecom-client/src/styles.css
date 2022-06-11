@@ -4,10 +4,10 @@
     --primary:#FE2D6C;
     --secondary:white;
     --shadow:#0000008a;
+    --whiteShadow:rgba(255, 255, 255, 0.726);
 }
 
 *{
-    z-index:0;
     padding:0px;
     margin:0px;
     font-family: Segoe Print;

@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
 
   public newArrival:object={
     "imgSrc":"../../../../assets/images/products/handbag.jpg",
-    "width":"80vw"
+    "width":"100vw"
   }
   constructor() {}
 

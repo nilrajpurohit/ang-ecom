@@ -4,7 +4,8 @@ import {faHandHoldingHeart,
   faCartShopping,
   faPersonWalkingArrowRight,
   faArrowRightFromBracket,
-  faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
+  faArrowRightToBracket,
+  faBars} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -19,10 +20,14 @@ export class HeaderComponent implements OnInit {
   faPersonWalkingArrowRight=faPersonWalkingArrowRight;
   faArrowRightFromBracket=faArrowRightFromBracket;
   faArrowRightToBracket=faArrowRightToBracket;
-  
+  faBars=faBars;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  showMenu = false;
+  toggleMenu(){
+    this.showMenu = !this.toggleMenu;
   }
 
 }

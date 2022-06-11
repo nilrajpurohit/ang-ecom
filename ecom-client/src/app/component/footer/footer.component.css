@@ -1,8 +1,8 @@
 .main{
-    margin-top: 100px;
+    margin-top: 20px;
     padding:5vh;
-    position: relative;
-    bottom: 0;
+    /* position: relative; */
+    /* bottom: 0; */
     color:var(--secondary);
     display: flex;
     justify-content: space-between;
