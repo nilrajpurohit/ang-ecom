@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //DEPENDENCIES
 import {NgxTinySliderModule} from 'ngx-tiny-slider';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 //COMPONENTS
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,7 @@ import { BannerComponent } from './component/banner/banner.component';
 import { SliderComponent } from './component/slider/slider.component';
 import { CategoryComponent } from './component/category/category.component';
 import { ProductComponent } from './component/product/product.component';
+import { AlertMsgComponent } from './component/alert-msg/alert-msg.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,16 @@ import { ProductComponent } from './component/product/product.component';
     BannerComponent,
     SliderComponent,
     CategoryComponent,
-    ProductComponent
+    ProductComponent,
+    AlertMsgComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgxTinySliderModule
+    NgxTinySliderModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     NgxTinySliderModule

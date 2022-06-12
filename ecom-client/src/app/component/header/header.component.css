@@ -77,12 +77,16 @@
     margin-right:20px;
     cursor: pointer;
     transition: all 0.3s;
-    filter:drop-shadow(0px 0px 2px var(--shadow));
     transition: all 0.1s;
 }
 
 .icons>.icon:active{
     transform: scale(1.2);
+}
+
+.icon>fa-icon{
+    /* filter:drop-shadow(0px 0px 2px var(--shadow)); */
+    z-index:-1;
 }
 
 .main>.head>.logo>.menuToggleBtn{
@@ -99,12 +103,14 @@
 }
 
 @media only screen and (max-width:1000px){
-    .main>.head>.logo>.humburger{
-        display:contents;
-    }
 
     .main>.head{
         position: relative;
+        margin-top:10px;
+    }
+
+    .main>.head>.logo>.humburger{
+        display:contents;
     }
 
     .main>.head>.backSide{
@@ -114,10 +120,10 @@
         left:0;
         width:100vw;
         height:100vh;
-        background: var(--shadow);
-        opacity:0.5;
+        background: black;
+        opacity:0.8;
     }
-
+    
     .main>.head>.menuContainer{
         position: fixed;
         left:0;
@@ -129,6 +135,12 @@
         height:100vh;
         text-align: left;
         box-shadow:0px 0px 15px var(--shadow);
+        transform: translateX(-100%);
+        transition:all 0.2s;
+    }
+
+    .main>.head>.openMenu{
+        transform: translateX(0%);
     }
 
     .main>.head>.menuContainer>.menus{
@@ -160,7 +172,7 @@
 
     .icons{
         position: absolute;
-        top:10px;
+        top:20px;
         width:95%;
         display:flex;
         justify-content:space-around;
@@ -187,6 +199,10 @@
 }
 
 @media only screen and (max-width:600px) {
+    .main>.head>.logo{
+        font-size:16px;
+    }
+
     .main>.head>.menuContainer{
         width:70%;
     }
@@ -201,14 +217,16 @@
 
     .menus>.menu{
         width:60%;
+        font-size:14px;
     }
 
     .main>.head>.menuContainer>.menus>.menu-active{
-        width:95%;
+        width:92%;
+        font-size:14px;
     }
 
     .menus>.menu:hover,.menus>.menu-active:hover,
     .menus>.menu:active,.menus>.menu-active:active{
-        width:95%;
+        width:92%;
     }
 }

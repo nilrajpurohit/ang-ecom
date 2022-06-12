@@ -1,12 +1,13 @@
+<app-alert-msg [data]="data"></app-alert-msg>
 <div class="main">
     <div class="head">
         <div class="logo">
-            <span class="humburger"><fa-icon [icon]="faBars"></fa-icon></span>
+            <span class="humburger" (click)="toggleMenu()"><fa-icon [icon]="faBars"></fa-icon></span>
             <span class="logoText">Sweet Art <fa-icon [icon]="faHandHoldingHeart"></fa-icon></span>
         </div>
 
-        <div class="backSide"></div>
-        <div class="menuContainer">
+        <div [class.backSide]="showMenu" (click)="toggleMenu()"></div>
+        <div class="menuContainer" [class.openMenu]="showMenu">
             <div class="menus">
                 <div class="menu-active">
                     <span>Home</span>

@@ -1,13 +1,15 @@
 .main{
-    height:auto;
-    width:auto;
+    height:100%;
+    width:100%;
+    padding:5vh 0vh;
+    overflow: hidden;
 }
 
 .main>.head{
     padding:2vh;
 }
 
-.main>.head>.logo{
+.head>.logo{
     font-weight: 900;
     font-size:20px;
     color:var(--secondary);
@@ -15,10 +17,8 @@
 
 .main>.formContainer{
     padding:2vh;
-    margin-left:15vw;
-    margin-top:5vh;
-    width:70vw;
-    height:70vh;
+    width:50vw;
+    margin-left:25vw;
     box-shadow: 0px 0px 20px var(--shadow);
     background: var(--secondary);
     border-radius:30px;
@@ -30,19 +30,27 @@
     font-weight: bolder;
 }
 
-.main>.formContainer>.formDiv{
+/* .main>.formContainer>.formDiv{
     height:80%;
-    width:40%;
+    width:80%;
+    margin-left:10%;
     margin-top:2%;
-    margin-left:30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background: var(--primary); */
+} */
+
+.controlGroup{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom:10px;
 }
 
-.main>.formContainer>.formDiv>.control>input:-webkit-autofill {
+.control>input:-webkit-autofill {
     -webkit-text-fill-color: var(--primary);
 }
 
@@ -51,41 +59,44 @@ input:-internal-autofill-selected{
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
-.main>.formContainer>.formDiv>.control {
+.control {
+    width:50%;
     display: flex;
     background: var(--secondary);
     padding:5px 15px;
     color: var(--primary);
     border-radius:50px;
     box-shadow:0px 0px 5px var(--shadow);
-    margin:10px;
-    border:2px solid transparent;
+    /* margin:10px; */
 }
 
-.main>.formContainer>.formDiv>.control>fa-icon{
+.control>fa-icon{
     margin-right:10px;
-    font-size:18px;
+    width:6%;
+    font-size:16px;
 }
 
-.main>.formContainer>.formDiv>.control>input{
-   border:none;
-   outline:none;
-   font-size:18px;
-   font-weight: bolder;
-   color: var(--primary);
-   background-color: var(--secondary);
+.control>input{
+    width:94%;
+    border:none;
+    outline:none;
+    font-size:14px;
+    font-weight: bolder;
+    color: var(--primary);
+    background-color: var(--secondary);
 }
 
-.main>.formContainer>.formDiv>.control>input::placeholder{
+.control>input::placeholder{
     font-size:14px;
 }
 
-.main>.formContainer>.formDiv>.controlBtn{
+.controlBtn{
     background: var(--primary);
+    font-size:14px;
+    width:150px;
     margin:30px;
-    font-size:18px;
-    width:21%;
-    padding:5px 30px;
+    margin-bottom:0px;
+    padding:8px 30px;
     border-radius:50px;
     box-shadow:0px 0px 5px var(--shadow);
     transition: all 0.1s;
@@ -93,17 +104,37 @@ input:-internal-autofill-selected{
     color: var(--secondary);
 }
 
-.main>.formContainer>.formDiv>.controlBtn>fa-icon{
+.controlBtn>fa-icon{
     margin-left:20px;
     animation-name: controlBtnAnim;
     animation-duration:2s;
     animation-iteration-count: infinite;
 }
-.main>.formContainer>.formDiv>.controlBtn:active{
+
+.controlBtn:active{
     transform: scale(1.15);
     box-shadow:0px 0px 5px var(--shadow);
 }
 
+.note{
+    text-align: center;
+    margin-top:30px;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Validation CSS  */
+
+.errorBorder{
+    border:2px solid red;
+}
+
+.errorText{
+    color:red;
+    font-weight: 700;
+}
 
 /* Animation */
 
@@ -116,5 +147,47 @@ input:-internal-autofill-selected{
     }
     100%{
         margin-left:10px;
+    }
+}
+
+@media only screen and (max-width:900px) {
+    .control {
+        width:80%;
+    }
+
+    .controlBtn{
+        width:50%;
+    }
+}
+
+@media only screen and (max-width:700px){
+    .main>.formContainer{
+        width:80vw;
+        margin-left:7vw;
+    }
+}
+
+@media only screen and (max-width:700px){
+    .main>.formContainer>.title{
+        font-size:14px;
+    }
+    .controlGroup{
+        margin-bottom:15px;
+    }
+    .control>input,.control>input::placeholder,.controlBtn{
+        font-size:12px;
+    }
+
+    .controlBtn{
+        margin:20px
+    }
+
+    .control>fa-icon{
+        font-size:12px;
+    }
+
+    .note{
+        margin-top:20px;
+        font-size:14px;
     }
 }

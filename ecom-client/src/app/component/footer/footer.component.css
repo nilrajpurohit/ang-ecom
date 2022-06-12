@@ -1,6 +1,7 @@
 .main{
     margin-top: 20px;
     padding:5vh;
+    padding-top:0vh;
     /* position: relative; */
     /* bottom: 0; */
     color:var(--secondary);

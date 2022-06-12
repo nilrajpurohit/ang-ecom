@@ -25,9 +25,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  showMenu = false;
-  toggleMenu(){
-    this.showMenu = !this.toggleMenu;
+
+  data:object = {
+    status:false,
+    message:'All thing is working',
+    timeout:'3000s'
   }
 
+  showMenu = false;
+  toggleMenu(){
+    this.showMenu = !this.showMenu;
+  }
 }
