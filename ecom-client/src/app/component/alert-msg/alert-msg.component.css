@@ -19,6 +19,17 @@
     padding:20px;
     border-radius:20px;
     box-shadow:0px 0px 20px var(--shadow);
+    animation:dropdown 0.25s ease-out;
+}
+
+@keyframes dropdown {
+    0%{
+        transform: translateY(-120%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }
 }
 
 .closeBtn{
@@ -28,8 +39,8 @@
     text-align: right;
 }
 
-.closeBtn:hover,.closeBtn:active{
-    transform:scale(1.5);
+.closeBtn:hover{
+    filter: drop-shadow(0px 0px 2px var(--shadow));
 }
 
 .message{

@@ -13,6 +13,10 @@ import {faHandHoldingHeart,
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  constructor() { }
+  ngOnInit(): void {
+  }
+
   //ICON'S INIT
   faHandHoldingHeart=faHandHoldingHeart;
   faCircleUser=faCircleUser;
@@ -21,18 +25,11 @@ export class HeaderComponent implements OnInit {
   faArrowRightFromBracket=faArrowRightFromBracket;
   faArrowRightToBracket=faArrowRightToBracket;
   faBars=faBars;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  data:object = {
-    status:false,
-    message:'All thing is working',
-    timeout:'3000s'
-  }
-
+  //Variables
   showMenu = false;
+  
+  //Functions
   toggleMenu(){
     this.showMenu = !this.showMenu;
   }

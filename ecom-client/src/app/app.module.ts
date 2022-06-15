@@ -38,7 +38,7 @@ import { AlertMsgComponent } from './component/alert-msg/alert-msg.component';
     FontAwesomeModule,
     NgxTinySliderModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     NgxTinySliderModule

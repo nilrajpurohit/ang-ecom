@@ -1,9 +1,9 @@
-<div class="alertContainer" *ngIf="data && showAlert">
-    <div class="backSide"></div>
+<div class="alertContainer" *ngIf="alertData && showAlert">
+    <div class="backSide" (click)="toggleAlert()"></div>
     <div class="alertBox" [ngStyle]="alertStyle">
-        <div class="closeBtn" *ngIf="!data.timeout" (click)="toggleAlert()">
+        <div class="closeBtn" *ngIf="!alertData.timeout" (click)="toggleAlert()">
             <fa-icon [icon]="faXmark"></fa-icon>
         </div>
-        <div class="message">{{data.message}}</div>
+        <div class="message">{{alertData.msg}}</div>
     </div>
 </div>

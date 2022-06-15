@@ -50,13 +50,19 @@
     margin-bottom:10px;
 }
 
-.control>input:-webkit-autofill {
+.control>input:-webkit-autofill{
     -webkit-text-fill-color: var(--primary);
 }
 
 input:-internal-autofill-selected{
     background-color:none;
     -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+select{
+    width:100%;
+    border:none;
+    outline:none;
 }
 
 .control {
@@ -67,7 +73,7 @@ input:-internal-autofill-selected{
     color: var(--primary);
     border-radius:50px;
     box-shadow:0px 0px 5px var(--shadow);
-    /* margin:10px; */
+    margin:5px;
 }
 
 .control>fa-icon{
@@ -76,7 +82,7 @@ input:-internal-autofill-selected{
     font-size:16px;
 }
 
-.control>input{
+.control>input,.control>select{
     width:94%;
     border:none;
     outline:none;
@@ -86,7 +92,7 @@ input:-internal-autofill-selected{
     background-color: var(--secondary);
 }
 
-.control>input::placeholder{
+.control>input::placeholder,.control>select::placeholder{
     font-size:14px;
 }
 

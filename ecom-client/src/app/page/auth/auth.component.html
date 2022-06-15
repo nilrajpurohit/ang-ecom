@@ -1,5 +1,7 @@
+<app-alert-msg></app-alert-msg>
 <div class="main">
     <p *ngIf="newUser; then thenBlock; else elseBlock"></p>
+   
     <!-- Login Form -->
    <ng-template #thenBlock>
 
@@ -68,50 +70,79 @@
                 <small class="errorText" *ngIf="registration.errors?.misMatch">Confirm password does not match !</small>
             </div>
            </div>
+
            <div class="controlGroup">
-            <div class="controlBtn selectDisable" (click)="toggleAddressForm()">
+            <div class="controlBtn selectDisable" (click)="validateRegistration()">
                 <span>Next</span>
                 <fa-icon [icon]="faCircleArrowRight"></fa-icon>
             </div>
            </div>
+
             <div class="note" (click)="toggleNewUser()">
                 Already have an account :
             </div>
         </div>
     </div>
 
-    <div *ngIf="addressForm" class="formContainer RegisterForm">
+    <div *ngIf="addressForm" class="formContainer RegisterForm" [formGroup]="address">
         <div class="title selectDisable">
             <span class="previousBtn selectDisable" style="margin-right:10px;" (click)="toggleAddressForm()">
                 <fa-icon [icon]="faCircleArrowLeft"></fa-icon>
             </span>
             Address Here :)
         </div>
+
         <div class="formDiv">
+           <div class="controlGroup">
             <div class="control">
-                <fa-icon [icon]="faAt"></fa-icon>
-                <input type="email" id="email" name="email" placeholder="Email ID">
+                <fa-icon [icon]="faEarthAsia"></fa-icon>
+                <select id="country" formControlName="country">
+                    <option value="">Select Country:</option>
+                </select>
             </div>
+           </div>
+
+           <div class="controlGroup">
             <div class="control">
-                <fa-icon [icon]="faPhone"></fa-icon>
-                <input type="number" id="number" name="number" placeholder="Mobile No">
+                <fa-icon [icon]="faCity"></fa-icon>
+                <select id="state" formControlName="state">
+                    <option value="">Select State:</option>
+                </select>
             </div>
+           </div>
+
+           <div class="controlGroup">
             <div class="control">
-                <fa-icon [icon]="faUser"></fa-icon>
-                <input type="text" id="username" name="username" placeholder="Username">
+                <fa-icon [icon]="faCity"></fa-icon>
+                <select id="city" formControlName="city">
+                    <option value="">Select City:</option>
+                </select>
             </div>
+           </div>
+
+           <div class="controlGroup">
             <div class="control">
-                <fa-icon [icon]="faKey"></fa-icon>
-                <input type="password" id="password" name="password" placeholder="Password">
+                <fa-icon [icon]="faMapPin"></fa-icon>
+                <select id="pincode" formControlName="pincode">
+                    <option value="">Select Pincode:</option>
+                </select>
             </div>
+           </div>
+
+           <div class="controlGroup">
             <div class="control">
-                <fa-icon [icon]="faCheckCircle"></fa-icon>
-                <input type="password" id="con-password" name="con-password" placeholder="Confirm Password">
+                <fa-icon [icon]="faLocationDot"></fa-icon>
+                <input type="text" id="subAddress" formControlName="subAddress" placeholder="Address">
             </div>
-            <div class="controlBtn selectDisable">
+           </div>
+           
+           <div class="controlGroup">
+            <div class="controlBtn selectDisable" (click)="validateAddress()">
                 <span>Register</span>
                 <fa-icon [icon]="faCircleArrowRight"></fa-icon>
             </div>
+           </div>
+
             <div class="note" (click)="toggleNewUser()">
                 Already have an account :
             </div>
@@ -119,6 +150,7 @@
     </div>
 
    </ng-template>
+
     <!-- Register Form -->
     <ng-template #elseBlock>
         <div class="formContainer LoginForm">

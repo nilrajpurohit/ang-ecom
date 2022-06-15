@@ -1,7 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {faUser,faKey,faCircleArrowRight,faAt,faPhone,faCheckCircle,faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { faEarthAsia,
+          faCity,
+          faLocationDot,
+          faMapPin,
+          faCircleArrowLeft,
+          faCircleArrowRight,
+          faUser,faKey,faAt,
+          faPhone,faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import {FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { ForbiddenNameValidator,PasswordValidator } from './shared/custom.validator';
+import { AlertMsgComponent } from 'src/app/component/alert-msg/alert-msg.component';
 
 @Component({
   selector: 'app-auth',
@@ -9,22 +17,27 @@ import { ForbiddenNameValidator,PasswordValidator } from './shared/custom.valida
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-
+  //ICON'S INIT
+  faEarthAsia=faEarthAsia;
+  faCity=faCity;
+  faLocationDot=faLocationDot;
+  faMapPin=faMapPin;
+  faCircleArrowLeft=faCircleArrowLeft;
+  faCircleArrowRight=faCircleArrowRight;
+  faUser=faUser;
+  faKey=faKey;
+  faAt=faAt;
+  faPhone=faPhone;
+  faCheckCircle=faCheckCircle;
+  
+  // VARIABLE'S INIT
+  newUser:boolean=true;
+  addressForm=true;
   registration: FormGroup | any;
   address: FormGroup | any;
 
   constructor(private fb:FormBuilder) { }
-  //ICON'S INIT
-  faKey=faKey;
-  faPhone=faPhone;
-  faCheckCircle=faCheckCircle;
-  faAt=faAt;
-  faUser=faUser;
-  faCircleArrowRight=faCircleArrowRight;
-  faCircleArrowLeft=faCircleArrowLeft;
-  
   ngOnInit(): void {
-
     this.registration = this.fb.group({
       email:['',[Validators.required,Validators.email]],
       number:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
@@ -32,12 +45,17 @@ export class AuthComponent implements OnInit {
       password:['',[Validators.required,Validators.minLength(7),Validators.maxLength(30),Validators.pattern("(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%*?&]).{7,}")]],
       confirmPassword :['',[Validators.required]],
     },{validator:PasswordValidator});
-    
+
+    this.address = this.fb.group({
+      country:['',[Validators.required]],
+      state:['',[Validators.required]],
+      city:['',[Validators.required]],
+      subAddress:['',[Validators.required]],
+      pincode:['',[Validators.required]]
+    })
   }
-  
-  // VARIABLE'S INIT
-  newUser:boolean=true;
-  addressForm=false;
+
+  @ViewChild(AlertMsgComponent) alertMsgCompo:AlertMsgComponent = new AlertMsgComponent;
 
   toggleNewUser(){
     this.addressForm = false;
@@ -45,7 +63,32 @@ export class AuthComponent implements OnInit {
   }
 
   toggleAddressForm(){
-    console.log(this.registration);
-    // this.addressForm = !this.addressForm;
+    this.addressForm = !this.addressForm;
   }
+
+  validateRegistration(){
+    if(this.registration.status == 'INVALID'){
+      this.alertMsgCompo.bindData({
+        status:false,
+        msg:'Form fields are invalid !',
+        timeout:'3000'
+      });
+    }
+
+    if(this.registration.status == 'VALID'){
+      this.toggleAddressForm()
+    }
+  }
+
+  validateAddress(){
+    console.log(this.address);
+    // if(this.address.status == 'INVALID'){
+    //   this.alertMsgCompo.bindData({
+    //     status:false,
+    //     msg:'Form fields are invalid !',
+    //     timeout:'3000'
+    //   });
+    // }
+  }
+
 }

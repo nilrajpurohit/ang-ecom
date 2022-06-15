@@ -7,22 +7,38 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./alert-msg.component.css']
 })
 export class AlertMsgComponent implements OnInit {
-  @Input() data:any='';
-  showAlert:boolean=false;
-  faXmark=faXmark;
   constructor() { }
   ngOnInit(): void {
-    if(this.data){
-      this.showAlert = true;
+  
+  }
+
+  //Variables
+  alertData:any='';
+  showAlert:boolean=true;
+  faXmark=faXmark;
+  
+  
+  //Functions
+  bindData(data:any){
+    this.showAlert = true;
+    this.alertData = data;
+    if(this.alertData.timeout){
+      setTimeout(()=>{
+        this.showAlert = false;
+        this.alertData = '';
+      },this.alertData.timeout)
     }
   }
 
   alertStyle:object={
-    background:this.data.status ? 'var(--primary)' : 'var(--secondary)',
-    color:this.data.status ? 'var(---secondary)' : 'var(--primary)'
+    background:this.alertData.status ? 'var(--primary)' : 'var(--secondary)',
+    color:this.alertData.status ? 'var(--secondary)' : 'var(--primary)',
+    border:this.alertData.status ? '2px solid var(--secondary)' : '2px solid var(--primary)',
   }
 
   toggleAlert(){
-    this.showAlert = false;
+    this.showAlert=false;
+    this.alertData='';
   }
+
 }
