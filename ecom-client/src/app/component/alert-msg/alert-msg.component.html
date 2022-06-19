@@ -1,5 +1,5 @@
 <div class="alertContainer" *ngIf="alertData && showAlert">
-    <div class="backSide" (click)="toggleAlert()"></div>
+    <div class="backSide"></div>
     <div class="alertBox" [ngStyle]="alertStyle">
         <div class="closeBtn" *ngIf="!alertData.timeout" (click)="toggleAlert()">
             <fa-icon [icon]="faXmark"></fa-icon>

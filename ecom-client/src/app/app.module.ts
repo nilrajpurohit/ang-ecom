@@ -1,9 +1,9 @@
+//DEPENDENCIES
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-//DEPENDENCIES
-import {NgxTinySliderModule} from 'ngx-tiny-slider';
-import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { NgxTinySliderModule } from 'ngx-tiny-slider';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //COMPONENTS
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,10 @@ import { SliderComponent } from './component/slider/slider.component';
 import { CategoryComponent } from './component/category/category.component';
 import { ProductComponent } from './component/product/product.component';
 import { AlertMsgComponent } from './component/alert-msg/alert-msg.component';
+
+
+//SERVICES
+import { AddressService } from './services/address.service';
 
 @NgModule({
   declarations: [
@@ -39,11 +43,12 @@ import { AlertMsgComponent } from './component/alert-msg/alert-msg.component';
     NgxTinySliderModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     NgxTinySliderModule
   ],
-  providers: [],
+  providers: [AddressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

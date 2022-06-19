@@ -16,30 +16,29 @@
                     <fa-icon [icon]="faAt"></fa-icon>
                     <input type="email" id="email" formControlName="email" placeholder="Email ID">
                 </div>
-                <div *ngIf="registration.get('email')?.invalid&& registration.get('email')?.touched">
+                <div class="errorBlock" *ngIf="registration.get('email')?.invalid&& registration.get('email')?.touched">
                     <small class="errorText" *ngIf="registration.get('email')?.errors?.required">Email is required !</small>
                     <small class="errorText" *ngIf="registration.get('email')?.errors?.email">Invalid email address !</small>
                 </div>
             </div>
 
            <div class="controlGroup">
-            <div class="control" [class.errorBorder]="(registration.get('number')?.errors?.required && registration.get('number')?.touched) || registration.get('number')?.errors?.pattern">
+            <div class="control" [class.errorBorder]="registration.get('number')?.invalid && registration.get('number')?.touched">
                 <fa-icon [icon]="faPhone"></fa-icon>
                 <input type="number" id="number" formControlName="number" placeholder="Mobile No">
             </div>
-            <div *ngIf="registration.get('number')?.invalid && registration.get('number')?.touched">
+            <div class="errorBlock" *ngIf="registration.get('number')?.invalid && registration.get('number')?.touched">
                 <small class="errorText" *ngIf="registration.get('number')?.errors?.required">Mobile number is required !</small>
                 <small class="errorText" *ngIf="registration.get('number')?.errors?.pattern">Mobile number must be 10 digit !</small>
             </div>
            </div>
 
            <div class="controlGroup">
-            <div class="control" [class.errorBorder]="(registration.get('username')?.errors?.required && registration.get('username')?.touched) 
-                || registration.get('username')?.errors?.minlength || registration.get('username')?.errors?.maxlength || registration.get('username')?.errors?.ForbiddenName">
+            <div class="control" [class.errorBorder]="registration.get('username')?.invalid && registration.get('username')?.touched">
                 <fa-icon [icon]="faUser"></fa-icon>
                 <input type="text" id="username" formControlName="username" placeholder="Username">
             </div>
-            <div *ngIf="registration.get('username')?.invalid && registration.get('username')?.touched">
+            <div class="errorBlock" *ngIf="registration.get('username')?.invalid && registration.get('username')?.touched">
                 <small class="errorText" *ngIf="registration.get('username')?.errors?.required">Username is required !</small>
                 <small class="errorText" *ngIf="registration.get('username')?.errors?.minlength">Username must be minimum 3 characters !</small>
                 <small class="errorText" *ngIf="registration.get('username')?.errors?.maxlength">Username is too long !</small>
@@ -48,12 +47,11 @@
            </div>
 
            <div class="controlGroup">
-            <div class="control" [class.errorBorder]="(registration.get('password')?.errors?.required && registration.get('password')?.touched) 
-            || registration.get('password')?.errors?.minlength || registration.get('password')?.errors?.maxlength || registration.get('password')?.errors?.pattern">
+            <div class="control" [class.errorBorder]="registration.get('password')?.invalid && registration.get('password')?.touched">
                 <fa-icon [icon]="faKey"></fa-icon>
                 <input type="password" id="password" formControlName="password" placeholder="Password">
             </div>
-            <div *ngIf="registration.get('password')?.invalid && registration.get('password')?.touched">
+            <div class="errorBlock" *ngIf="registration.get('password')?.invalid && registration.get('password')?.touched">
                 <small class="errorText" *ngIf="registration.get('password')?.errors?.required">Password is required !</small>
                 <small class="errorText" *ngIf="registration.get('password')?.errors?.minlength">Password must be minimum 7 characters !</small>
                 <small class="errorText" *ngIf="registration.get('password')?.errors?.maxlength">Password is too long !</small>
@@ -66,7 +64,7 @@
                 <fa-icon [icon]="faCheckCircle"></fa-icon>
                 <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">
             </div>
-            <div *ngIf="registration.errors?.misMatch">
+            <div class="errorBlock" *ngIf="registration.errors?.misMatch">
                 <small class="errorText" *ngIf="registration.errors?.misMatch">Confirm password does not match !</small>
             </div>
            </div>
@@ -94,45 +92,66 @@
 
         <div class="formDiv">
            <div class="controlGroup">
-            <div class="control">
+            <div class="control" [class.errorBorder]="address.get('country')?.invalid && address.get('country')?.touched">
                 <fa-icon [icon]="faEarthAsia"></fa-icon>
-                <select id="country" formControlName="country">
+                <select id="country" formControlName="country" (change)="changeControlValue('country')">
                     <option value="">Select Country:</option>
+                    <option *ngFor="let country of countries;index as i" [value]="country|json">{{country.Name}}</option>
                 </select>
+            </div>
+            <div class="errorBlock" *ngIf="address.get('country')?.invalid&& address.get('country')?.touched">
+                <small class="errorText" *ngIf="address.get('country')?.errors?.required">Country is required !</small>
             </div>
            </div>
 
            <div class="controlGroup">
-            <div class="control">
+            <div class="control" [class.disableControl]="address.get('state')?.disabled" 
+                [class.errorBorder]="address.get('state')?.invalid && address.get('state')?.touched">
                 <fa-icon [icon]="faCity"></fa-icon>
-                <select id="state" formControlName="state">
+                <select id="state" formControlName="state" (change)="changeControlValue('state')">
                     <option value="">Select State:</option>
+                    <option *ngFor="let state of states;index as i" [value]="state|json">{{state.Name}}</option>
                 </select>
+            </div>
+            <div class="errorBlock" *ngIf="address.get('state')?.invalid&& address.get('state')?.touched">
+                <small class="errorText" *ngIf="address.get('state')?.errors?.required">State is required !</small>
             </div>
            </div>
 
            <div class="controlGroup">
-            <div class="control">
+            <div class="control" [class.disableControl]="address.get('city')?.disabled"
+                [class.errorBorder]="address.get('city')?.invalid && address.get('city')?.touched">
                 <fa-icon [icon]="faCity"></fa-icon>
-                <select id="city" formControlName="city">
+                <select id="city" formControlName="city" (change)="changeControlValue('city')">
                     <option value="">Select City:</option>
+                    <option *ngFor="let city of cities;index as i" [value]="city|json">{{city.Name}}</option>
                 </select>
+            </div>
+            <div class="errorBlock" *ngIf="address.get('city')?.invalid&& address.get('city')?.touched">
+                <small class="errorText" *ngIf="address.get('city')?.errors?.required">City is required !</small>
             </div>
            </div>
 
            <div class="controlGroup">
-            <div class="control">
+            <div class="control" [class.disableControl]="address.get('pincode')?.disabled"
+                [class.errorBorder]="address.get('pincode')?.invalid && address.get('pincode')?.touched">
                 <fa-icon [icon]="faMapPin"></fa-icon>
-                <select id="pincode" formControlName="pincode">
-                    <option value="">Select Pincode:</option>
-                </select>
+                <input type="text" id="subAddress" formControlName="pincode" placeholder="Pincode" (change)="changeControlValue('pincode')">
+            </div>
+            <div class="errorBlock" *ngIf="address.get('pincode')?.invalid&& address.get('pincode')?.touched">
+                <small class="errorText" *ngIf="address.get('pincode')?.errors?.required">Pincode is required !</small>
+                <small class="errorText" *ngIf="address.get('pincode')?.errors?.pattern">Pincode must be 6 digit !</small>
             </div>
            </div>
 
            <div class="controlGroup">
-            <div class="control">
+            <div class="control" [class.disableControl]="address.get('subAddress')?.disabled"
+                [class.errorBorder]="address.get('subAddress')?.invalid && address.get('subAddress')?.touched">
                 <fa-icon [icon]="faLocationDot"></fa-icon>
                 <input type="text" id="subAddress" formControlName="subAddress" placeholder="Address">
+            </div>
+            <div class="errorBlock" *ngIf="address.get('subAddress')?.invalid&& address.get('subAddress')?.touched">
+                <small class="errorText" *ngIf="address.get('subAddress')?.errors?.required">Address is required !</small>
             </div>
            </div>
            
@@ -153,23 +172,46 @@
 
     <!-- Register Form -->
     <ng-template #elseBlock>
-        <div class="formContainer LoginForm">
+        <div class="formContainer LoginForm" [formGroup]="login">
             <div class="title selectDisable">
                 Login Here ;)
             </div>
             <div class="formDiv">
-                <div class="control">
-                    <fa-icon [icon]="faUser"></fa-icon>
-                    <input type="text" id="username" name="username" placeholder="Username">
+                <div class="controlGroup">
+                    <div class="control" [class.errorBorder]="(login.get('username')?.errors?.required && login.get('username')?.touched) 
+                        || login.get('username')?.errors?.minlength || login.get('username')?.errors?.maxlength || login.get('username')?.errors?.ForbiddenName">
+                        <fa-icon [icon]="faUser"></fa-icon>
+                        <input type="text" id="username" formControlName="username" placeholder="Username">
+                    </div>
+                    <div class="errorBlock" *ngIf="login.get('username')?.invalid && login.get('username')?.touched">
+                        <small class="errorText" *ngIf="login.get('username')?.errors?.required">Username is required !</small>
+                        <small class="errorText" *ngIf="login.get('username')?.errors?.minlength">Username must be minimum 3 characters !</small>
+                        <small class="errorText" *ngIf="login.get('username')?.errors?.maxlength">Username is too long !</small>
+                        <small class="errorText" *ngIf="login.get('username')?.errors?.ForbiddenName">Username not allowed !</small>
+                    </div>
+                   </div>
+
+                   <div class="controlGroup">
+                    <div class="control" [class.errorBorder]="(login.get('password')?.errors?.required && login.get('password')?.touched) 
+                    || login.get('password')?.errors?.minlength || login.get('password')?.errors?.maxlength || login.get('password')?.errors?.pattern">
+                        <fa-icon [icon]="faKey"></fa-icon>
+                        <input type="password" id="password" formControlName="password" placeholder="Password">
+                    </div>
+                    <div class="errorBlock" *ngIf="login.get('password')?.invalid && login.get('password')?.touched">
+                        <small class="errorText" *ngIf="login.get('password')?.errors?.required">Password is required !</small>
+                        <small class="errorText" *ngIf="login.get('password')?.errors?.minlength">Password must be minimum 7 characters !</small>
+                        <small class="errorText" *ngIf="login.get('password')?.errors?.maxlength">Password is too long !</small>
+                        <small class="errorText" *ngIf="login.get('password')?.errors?.pattern && !login.get('password')?.errors?.minlength && !login.get('password')?.errors?.maxlength">Password must contain letter, symbol and digit !</small>
+                    </div>
+                   </div>
+
+                <div class="controlGroup">
+                    <div class="controlBtn selectDisable" (click)="validateLogin()">
+                        <span>Login</span>
+                        <fa-icon [icon]="faCircleArrowRight"></fa-icon>
+                    </div>
                 </div>
-                <div class="control">
-                    <fa-icon [icon]="faKey"></fa-icon>
-                    <input type="password" id="password" name="password" placeholder="Password">
-                </div>
-                <div class="controlBtn selectDisable">
-                    <span>Login</span>
-                    <fa-icon [icon]="faCircleArrowRight"></fa-icon>
-                </div>
+
                 <div class="note" (click)="toggleNewUser()">
                     Create an account :
                 </div>
